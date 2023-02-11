@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", function(){
             else
             {
                 let gameType = this.getAttribute("data-type");
-                alert(`You clicked ${gameType}`);                
+                runGame(gameType);              
             }
         })
     }
+
+    runGame("addition");
 
 
 } )
@@ -28,6 +30,16 @@ function runGame()
 {
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
+
+    if(gameType === "addition")
+    {
+        displayAdditionQuestion(num1,num2);
+    }
+    else
+    {
+        alert(`Unknown game type: ${gameType}`);
+        throw `Unknown game type: ${gameType} Aborting!`;
+    }
 }
 
 function checkAnswer()
@@ -50,8 +62,11 @@ function incrementWrongAnswer()
 
 }
 
-function displayAdditionQuestion()
+function displayAdditionQuestion(operand1,operand2)
 {
+    document.getElementById("operand1").textContent = operand1;
+    document.getElementById("operand2").textContent = operand2;
+    document.getElementById("operator").textContent = "+";
 
 }
 
