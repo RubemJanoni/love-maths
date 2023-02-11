@@ -33,7 +33,7 @@ function runGame()
 
     if(gameType === "addition")
     {
-        displayAdditionQuestion(num1,num2);
+        displayAdditionQuestion(num1, num2);
     }
     else
     {
@@ -64,9 +64,9 @@ function incrementWrongAnswer()
 
 function displayAdditionQuestion(operand1,operand2)
 {
-    document.getElementById("operand1").textContent = operand1;
-    document.getElementById("operand2").textContent = operand2;
-    document.getElementById("operator").textContent = "+";
+    document.getElementById('operand1').textContent = operand1;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = "+";
 
 }
 
