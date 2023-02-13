@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
         button.addEventListener("click", function () {
             if(this.getAttribute("data-type") === "submit")
             {
-                alert("You clicked submit!");
+                checkAnswer();
             }
             else
             {
@@ -42,8 +42,26 @@ function runGame(gameType)
     }
 }
 
+/**
+ * Gets the operands (the numbers) and the operators (plus,minus etc) directly from the DOM
+ * and return the correct answer.
+ */
 function checkAnswer()
 {
+    let userAnswer = parseInt(document.getElementById('answer-box').value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if(isCorrect)
+    {
+        alert("Hey! You got it right!");
+    }
+    else
+    {
+        alert(`Ahhh... You answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}! `);
+    }
+
+    runGame(calculatedAnswer[1]);
 
 }
 
